@@ -3,6 +3,8 @@ package aula5.parte2;
 import java.util.ArrayList;
 import java.util.List;
 
+//Classe do carrinho de compras
+
 public class ShoppingCart {
 
 	private List<Product> products;
