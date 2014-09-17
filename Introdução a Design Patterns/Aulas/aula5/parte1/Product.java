@@ -43,8 +43,10 @@ public class Product {
 	
 	@Override
 	public String toString() {
-		return  "Produto ID....: "+getId()+ "\n"+
+		String texto = "Produto ID....: "+getId()+ "\n"+
 				"Produto Nome..: "+getName()+ "\n"+
-				"Produto Preço.: U$"+getPrice()+"\n";
+				"Produto Preço.: U$"+getPrice()+"\n"; 
+		
+		return texto;
 	}
 }
