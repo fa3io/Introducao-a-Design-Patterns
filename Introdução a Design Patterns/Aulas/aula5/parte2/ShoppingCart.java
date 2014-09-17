@@ -16,7 +16,7 @@ public class ShoppingCart {
 	public void add(Product product){
 		products.add(product);
 	}
-	
+	//Metodo para retornar valor total fica no carrinho e não nos produtos
 	public double getamount(){
 		double amount = 0.0;
 		for (Product product : products) {
