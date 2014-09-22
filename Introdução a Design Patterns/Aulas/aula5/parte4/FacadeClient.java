@@ -1,9 +1,12 @@
 package aula5.parte4;
 
+
 public class FacadeClient {
 	public static void main(String[] args) {
 		
 		Facade facade = new Facade();
+
+
 		
 		facade.registrar(15, "Lula Silva");
 		facade.shopping(03,15);
@@ -12,5 +15,7 @@ public class FacadeClient {
 		
 		
 		facade.finishShopping(15);
+		
+		
 	}
 }
