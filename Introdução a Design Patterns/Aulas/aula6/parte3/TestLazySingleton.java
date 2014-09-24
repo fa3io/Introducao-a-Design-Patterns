@@ -1,6 +1,6 @@
 package aula6.parte3;
 
-public class TestSingletonIngenuo {
+public class TestLazySingleton {
 	
 	public static void main(String[] args) {
 		
