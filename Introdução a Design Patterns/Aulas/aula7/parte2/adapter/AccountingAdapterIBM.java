@@ -6,6 +6,8 @@ public class AccountingAdapterIBM implements IAccountingAdapter {
 
 	private AccountSystem accountSystem;
 	
+	
+	
 	@Override
 	public void finalizeSale() {
 		accountSystem.registerSale();

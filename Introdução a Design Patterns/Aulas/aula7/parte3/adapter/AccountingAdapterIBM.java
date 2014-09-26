@@ -1,11 +1,14 @@
-package aula7.parte2.adapter;
+package aula7.parte3.adapter;
 
 import aula7.AccountSystem;
 
-public class AccountingAdapterItauTec implements IAccountingAdapter{
+public class AccountingAdapterIBM implements IAccountingAdapter {
 
 	private AccountSystem accountSystem;
 	
+	public AccountingAdapterIBM() {
+		accountSystem = new AccountSystem("IBM");
+	}
 	
 	@Override
 	public void finalizeSale() {
