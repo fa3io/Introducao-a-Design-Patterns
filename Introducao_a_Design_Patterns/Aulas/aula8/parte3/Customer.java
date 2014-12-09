@@ -1,6 +1,5 @@
 
-package aula8.parte2;
-
+package aula8.parte3;
 
 import java.io.Serializable;
 import javax.persistence.Entity;

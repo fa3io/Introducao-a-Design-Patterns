@@ -5,7 +5,7 @@
  */
 package aula8.parte2;
 
-import aula8.parte1.*;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
