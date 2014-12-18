@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aula8.parte6;
+package aula8.parte7;
+
+
 
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -16,64 +18,62 @@ import javax.persistence.Id;
  * @author fsantos
  */
 @Entity
-public class Product implements Serializable {
+public class Credential implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
-    private double price;
+    private String login;
+    private String password;
 
-    public Product() {
-    }
-
-    public Product(String name, double price) {
-        this.name = name;
-        this.price = price;
+    public Credential() {
     }
     
     
-    
 
-    public Integer getId() {
+    public Credential(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     
-     @Override
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
     public int hashCode() {
         int hash = 0;
         hash += (int) id;
         return hash;
     }
 
-  @Override
+    @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Product)) {
+        if (!(object instanceof Credential)) {
             return false;
         }
-        Product other = (Product) object;
+        Credential other = (Credential) object;
         if (this.id != other.id) {
             return false;
         }
@@ -82,9 +82,9 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-          return  "ID....:" + getId() + "\n"
-                + "Nome..:" + getName() + "\n"
-                + "Price.:" + getPrice();
+     return "ID........:" + getId() + "\n"
+          + "Login.....:" + getLogin()+ "\n"
+          + "PassWord..:" + getPassword()+ "\n";
     }
     
 }

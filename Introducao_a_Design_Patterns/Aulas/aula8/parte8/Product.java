@@ -1,37 +1,36 @@
-package aula8.parte6;
+
+package aula8.parte8;
 
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 /**
  *
  * @author fsantos
  */
 @Entity
-public class Customer implements Serializable {
-
+public class Product implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String city;
     private String name;
-    @OneToOne(cascade = CascadeType.ALL)
-    private Credential credential;
+    private double price;
 
-    public Customer() {
+    public Product() {
     }
 
-    public Customer(String name, String city) {
+    public Product(String name, double price) {
         this.name = name;
-        this.city = city;
+        this.price = price;
     }
+    
+    
+    
 
     public Integer getId() {
         return id;
@@ -49,16 +48,15 @@ public class Customer implements Serializable {
         this.name = name;
     }
 
-    public String getCity() {
-        return city;
+    public double getPrice() {
+        return price;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setPrice(double price) {
+        this.price = price;
     }
-    
-    
 
+    
      @Override
     public int hashCode() {
         int hash = 0;
@@ -66,13 +64,13 @@ public class Customer implements Serializable {
         return hash;
     }
 
-   @Override
+  @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Customer)) {
+        if (!(object instanceof Product)) {
             return false;
         }
-        Customer other = (Customer) object;
+        Product other = (Product) object;
         if (this.id != other.id) {
             return false;
         }
@@ -81,19 +79,9 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return "ID....:" + getId() + "\n"
+          return  "ID....:" + getId() + "\n"
                 + "Nome..:" + getName() + "\n"
-                + "City..:" + getCity()+ "\n"
-                + credential.toString();
+                + "Price.:" + getPrice();
     }
-
-   
-    public Credential getCredential() {
-        return credential;
-    }
-
-    public void setCredential(Credential credential) {
-        this.credential = credential;
-    }
-
+    
 }

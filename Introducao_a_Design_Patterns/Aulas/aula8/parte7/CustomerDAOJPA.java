@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aula8.parte6;
-
+package aula8.parte7;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,36 +14,38 @@ import javax.persistence.Query;
  *
  * @author fsantos
  */
-public class ProductDAOJPA implements ProductDAO{
-    
-     //Cria a fabrica de EntityManageer e depois é feito um EntityManeger
+public class CustomerDAOJPA implements CustomerDAO {
+
+    //Cria a fabrica de EntityManageer e depois é feito um EntityManeger
     static EntityManagerFactory factory = Persistence.createEntityManagerFactory("Introducao_a_Design_PatternsPU");
     EntityManager entityManager;
 
-    public ProductDAOJPA() {
+    public CustomerDAOJPA() {
         entityManager = factory.createEntityManager();
     }
-    
+
     @Override
-    public void persist(Product product) {
-       try {
+    public void persist(Customer customer) {
+        try {
             //Abrimos para transações
             open();
             entityManager.getTransaction().begin();
-            entityManager.persist(product);
+            entityManager.persist(customer);
             //Fechando transações
             entityManager.getTransaction().commit();
         } finally {
             close();
-        }}
+        }
+
+    }
 
     @Override
-    public void update(Product product) {
-      try {
+    public void update(Customer customer) {
+        try {
             //Abrimos para transações
             open();
             entityManager.getTransaction().begin();
-            entityManager.merge(product);
+            entityManager.merge(customer);
             //Fechando transações
             entityManager.getTransaction().commit();
         } finally {
@@ -53,13 +54,13 @@ public class ProductDAOJPA implements ProductDAO{
     }
 
     @Override
-    public void remove(Product product) {
-       Product temporario = null;
+    public void remove(Customer customer) {
+        Customer temporario = null;
         try {
             //Abrimos para transações
             open();
             entityManager.getTransaction().begin();
-            temporario = entityManager.merge(product);
+            temporario = entityManager.merge(customer);
             entityManager.remove(temporario);
             //Fechando transações
             entityManager.getTransaction().commit();
@@ -69,44 +70,43 @@ public class ProductDAOJPA implements ProductDAO{
     }
 
     @Override
-    public List<Product> findAll(String name) {
-        List<Product> products = null;
+    public List findAll(String name) {
+        List<Customer> customers = null;
         try {
             //Abrimos para transações
             open();
             entityManager.getTransaction().begin();
-            String strQuery = "SELECT p from Product p WHERE c.name =:n ";
+            String strQuery = "SELECT c from Customer c WHERE c.name =:n ";
             Query query = entityManager.createQuery(strQuery);
             query.setParameter("n", name);
 
-            products = query.getResultList();
+            customers = query.getResultList();
 
             //Fechando transações
             entityManager.getTransaction().commit();
         } finally {
             close();
         }
-        return products;
+        return customers;
     }
-
-    @Override
-    public List<Product> findAll() {
-        List<Product> products = null;
+    
+     @Override
+    public List findAll() {
+       List<Customer> customers = null;
         try {
             //Abrimos para transações
             open();
             entityManager.getTransaction().begin();
-            String strQuery = "SELECT p from Product p";
+            String strQuery = "SELECT c from Customer c";
             Query query = entityManager.createQuery(strQuery);
-            products = query.getResultList();
+            customers = query.getResultList();
             //Fechando transações
             entityManager.getTransaction().commit();
         } finally {
             close();
         }
-        return products;
+        return customers;
     }
-    
     private void open() {
 
         if (!factory.isOpen()) {
@@ -124,5 +124,4 @@ public class ProductDAOJPA implements ProductDAO{
             factory.close();
         }
     }
-    
 }

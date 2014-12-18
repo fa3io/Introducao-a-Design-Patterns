@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package aula8.parte6;
+package aula8.parte7;
+
 
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -25,6 +26,8 @@ public class ProductDAOJPA implements ProductDAO{
         entityManager = factory.createEntityManager();
     }
     
+    
+
     @Override
     public void persist(Product product) {
        try {
