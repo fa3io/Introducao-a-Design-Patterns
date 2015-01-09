@@ -12,6 +12,7 @@
       <property name="javax.persistence.jdbc.password" value="123"/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
       <property name="eclipselink.logging.level" value="FINE"/>
+      <property name="eclipselink.create-ddl-jdbc-file-name" value="Both"/>
     </properties>
   </persistence-unit>
 </persistence>
